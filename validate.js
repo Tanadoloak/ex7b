@@ -1,10 +1,8 @@
 function checkSID() {
 	let sid = (document.getElementById("sid").value).trim();
-	// ตรวจสอบความยาวต้องเป็น 10 ตัวอักษร
 	if (sid.length !== 10) {
 	  return false;
 	}
-	// ตรวจสอบว่าทุกตัวอักษรเป็นตัวเลขระหว่าง 0 ถึง 9
 	for (let i = 0; i < sid.length; i++) {
 	  if (isNaN(parseInt(sid[i])) || parseInt(sid[i]) < 0 || parseInt(sid[i]) > 9) {
 		return false;
@@ -15,7 +13,8 @@ function checkSID() {
   
   function checkCandiNo() {
 	let candi = (document.getElementById("candi").value).trim();
-	if (isNaN(candi) || candi < 1) {
+	// ตรวจสอบว่าเป็นตัวเลข และมีค่าตั้งแต่ 1 ถึง 10
+	if (isNaN(candi) || parseInt(candi) < 1 || parseInt(candi) > 10) {
 	  return false;
 	} else {
 	  return true;
@@ -29,7 +28,7 @@ function checkSID() {
 		return false;
 	  }else{
 		  if(!checkCandiNo()){
-			alert("Invalid value for Candidate No! It must be a positive number.");
+			alert("Invalid value for Candidate No! It must be a number between 1 and 10.");
 			document.getElementById("candi").focus();
 			return false;
 		  }else{
